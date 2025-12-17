@@ -21,6 +21,8 @@ body {
     background-color: #ffffff;
     line-height: 1.6;
     scroll-behavior: smooth;
+    /* Prevent horizontal scroll on mobile */
+    overflow-x: hidden; 
 }
 
 .container {
@@ -29,7 +31,7 @@ body {
     padding: 0 2rem;
 }
 
-/* --- NAVBAR (Standard Theme) --- */
+/* --- NAVBAR --- */
 .navbar {
     height: 110px;
     display: flex;
@@ -142,6 +144,25 @@ body {
     transform: translateY(-3px);
 }
 
+.btn-submit {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
 /* Hero Section */
 .hero {
     padding: 100px 0;
@@ -216,7 +237,6 @@ body {
 .card h3 { margin-bottom: 0.8rem; color: var(--dark); }
 
 /* --- APPOINTMENT SECTION --- */
-
 .appointment { padding: 100px 0; }
 
 .flex-split {
@@ -243,13 +263,8 @@ body {
 }
 
 
-/* ================================================================= */
-/* === CUSTOM COLOR PALETTE APPLIED ONLY TO BOOKING CARD SECTION === */
-/* Palette: #1B3C53, #234C6A, #456882, #E3E3E3 */
-/* ================================================================= */
-
+/* === BOOKING CARD (Custom Palette: #1B3C53, #234C6A, #456882, #E3E3E3) === */
 .booking-card {
-    /* Using #E3E3E3 (Light Grey) as base */
     background: linear-gradient(135deg, #E3E3E3 0%, #ffffff 100%);
     color: #1B3C53; /* Deep Navy text */
     padding: 3.5rem;
@@ -260,7 +275,6 @@ body {
     overflow: hidden;
 }
 
-/* Top Accent Bar using #234C6A */
 .booking-card::before {
     content: '';
     position: absolute;
@@ -268,14 +282,14 @@ body {
     left: 0;
     width: 100%;
     height: 6px;
-    background: #234C6A; /* Medium Blue */
+    background: #234C6A; /* Medium Blue Accent */
 }
 
 .booking-card h3 {
     font-size: 1.8rem;
     margin-bottom: 0.5rem;
     font-weight: 800;
-    color: #1B3C53; /* Deep Navy */
+    color: #1B3C53;
 }
 
 .input-group { margin-bottom: 2rem; position: relative; z-index: 2; }
@@ -284,18 +298,17 @@ body {
     display: block;
     margin-bottom: 0.8rem;
     font-size: 0.95rem;
-    color: #456882; /* Blue-Grey for Labels */
+    color: #456882;
     font-weight: 600;
 }
 
-/* Dropdown */
 .input-group select {
     width: 100%;
     padding: 1.2rem;
     border-radius: 10px;
-    border: 1px solid #456882; /* Blue-Grey Border */
-    background: #c2bebe;
-    color: #1B3C53; /* Deep Navy Text */
+    border: 1px solid #456882;
+    background: #ffffff;
+    color: #1B3C53;
     font-size: 1rem;
     cursor: pointer;
     outline: none;
@@ -313,33 +326,26 @@ body {
     box-shadow: 0 0 0 4px rgba(35, 76, 106, 0.1);
 }
 
-.input-group select option {
-    background: #ffffff;
-    color: #1B3C53;
-}
-
-/* Submit Button using #234C6A */
 .btn-submit {
     width: 100%;
     padding: 1.2rem;
-    background: #234C6A; /* Medium Blue */
+    background: #234C6A;
     color: white;
     border: none;
     border-radius: 10px;
     font-weight: 700;
     font-size: 1.1rem;
     cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 10px 20px -5px rgba(9, 61, 98, 0.2);
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px -5px rgba(27, 60, 83, 0.2);
 }
 
 .btn-submit:hover {
-    background: #1B3C53; /* Deep Navy on Hover */
+    background: #1B3C53;
     transform: translateY(-2px);
-    box-shadow: 0 15px 25px -5px rgba(27, 90, 83, 0.3);
+    box-shadow: 0 15px 25px -5px rgba(27, 60, 83, 0.3);
 }
 
-/* Phone Cards */
 .phone-box {
     display: flex;
     flex-direction: column;
@@ -349,7 +355,7 @@ body {
 
 .phone-link {
     background: #ffffff;
-    color: #1B3C53; /* Deep Navy */
+    color: #1B3C53;
     text-decoration: none;
     font-size: 1.3rem;
     font-weight: 700;
@@ -371,8 +377,6 @@ body {
     border-color: var(--success);
 }
 
-/* ================================================================= */
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
@@ -380,14 +384,86 @@ body {
 
 footer { text-align: center; padding: 3rem; color: #64748b; font-size: 0.9rem; }
 
+/* === MOBILE STYLES (THE FIX FOR SMARTPHONES) === */
+/* Mobile Sticky Bar (Hidden on Desktop) */
+.mobile-bottom-bar {
+    display: none; 
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    z-index: 2000;
+    padding: 10px 15px;
+    justify-content: space-between;
+    gap: 15px;
+    border-top: 1px solid #f1f5f9;
+}
+
+.mobile-action-btn {
+    flex: 1;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.call-btn { background: #eff6ff; color: var(--primary); border: 1px solid var(--primary); }
+.book-btn { background: var(--primary); color: white; }
+
+/* Media Queries for Smartphone Screens */
 @media (max-width: 768px) {
-    .flex-split { grid-template-columns: 1fr; }
-    .hero-content h1 { font-size: 2.5rem; }
+    /* Adjust Container padding */
+    .container { padding: 0 1.5rem; }
+
+    /* Shrink Navbar */
+    .navbar { height: 75px; }
+    .navbar .container { padding: 0 20px; }
+    
+    /* Optimize Logo */
+    .logo-img { height: 45px; } 
+    .brand-name { 
+        font-size: 0.9rem; 
+        line-height: 1.1; 
+        white-space: normal;
+        max-width: 150px;
+    }
+    
+    /* Hide Desktop Nav Links */
     .nav-links { display: none; }
     
-    .navbar { height: 80px; }
-    .logo-img { height: 50px; } 
-    .brand-name { font-size: 1rem; }
+    /* Show Mobile Bottom Bar */
+    .mobile-bottom-bar { display: flex; }
+    /* Add padding to body so content doesn't hide behind the bar */
+    body { padding-bottom: 70px; } 
+
+    /* Fix Hero Typography */
+    .hero { padding: 80px 0 40px 0; text-align: center; }
+    .hero-content h1 { font-size: 2.2rem; margin-bottom: 1rem; }
+    .hero-content p { font-size: 1rem; margin-bottom: 2rem; }
     
-    .navbar .container { padding: 0 20px; }
+    /* Stack Hero Buttons & Make Full Width */
+    .hero-btns { display: flex; flex-direction: column; gap: 15px; }
+    .btn-primary, .btn-secondary { width: 100%; margin: 0; text-align: center; padding: 1rem; }
+
+    /* Adjust Sections */
+    .facilities, .appointment { padding: 60px 0; }
+    .section-header h2 { font-size: 1.8rem; }
+    
+    /* Stack Appointment Section */
+    .flex-split { grid-template-columns: 1fr; gap: 3rem; }
+    
+    /* Fix Booking Card Padding */
+    .booking-card { padding: 2rem 1.5rem; }
+    .booking-card h3 { font-size: 1.5rem; }
+    
+    /* Prevent iPhone Zoom on input focus */
+    .input-group select { font-size: 16px; }
 }
