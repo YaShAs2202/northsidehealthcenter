@@ -13,7 +13,7 @@
     <nav class="navbar">
         <div class="container nav-flex">
             <div class="logo">
-                <img src="logo.png" alt="NSHC Logo" class="logo-img" onerror="this.src='Logo.png'"> 
+                <img src="logo.png" alt="NSHC Logo" class="logo-img" onerror="this.src='Logo.png'" style="display: block;"> 
                 <span class="brand-name">NORTH SIDE HEALTH CENTRE</span>
             </div>
             
@@ -177,12 +177,30 @@
         <a href="tel:9945807091" class="mobile-action-btn call-btn">
             <i class="fas fa-phone-alt"></i> Call Now
         </a>
-        <a href="#appointment" onclick="document.getElementById('appointment').scrollIntoView({behavior: 'smooth'})" class="mobile-action-btn book-btn">
+        
+        <a href="javascript:void(0)" onclick="mobileScrollToBook()" class="mobile-action-btn book-btn">
             <i class="fas fa-calendar-check"></i> Book Now
         </a>
     </div>
 
     <script>
+        // 1. Mobile Booking Scroll Fix
+        function mobileScrollToBook() {
+            const section = document.getElementById("appointment");
+            if (section) {
+                // Manually calculate position to account for sticky header
+                const headerOffset = 120; 
+                const elementPosition = section.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        }
+
+        // 2. Reveal Phone Numbers Logic
         function revealNumbers() {
             var service = document.getElementById("service-select").value;
             if (service === "") {
@@ -193,6 +211,7 @@
             document.getElementById("booking-step-2").style.display = "block";
         }
 
+        // 3. Reset Logic
         function resetBooking() {
             document.getElementById("booking-step-1").style.display = "block";
             document.getElementById("booking-step-2").style.display = "none";
