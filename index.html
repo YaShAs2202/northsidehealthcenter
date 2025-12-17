@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>North Side Health Centre | Premium Diagnostics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="container nav-flex">
+            <div class="logo">
+                <img src="logo.png" alt="NSHC Logo" class="logo-img" onerror="this.style.display='none'"> 
+                <span class="brand-name">NORTH SIDE HEALTH CENTER</span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#appointment" class="btn-nav">Book Now</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="badge">Multi Diagnostic & Speciality Centre</span>
+                <h1>Precision Diagnostics <br><span>For Your Better Health.</span></h1>
+                <p>Equipped with state-of-the-art technology and expert doctors to provide accurate results when it matters most.</p>
+                <div class="hero-btns">
+                    <a href="#appointment" class="btn-primary">Get Started</a>
+                    <a href="tel:9945807091" class="btn-secondary"><i class="fas fa-phone"></i> Call Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="facilities" class="facilities">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Specialized Services</h2>
+                <p>World-class diagnostic facilities under one roof.</p>
+            </div>
+            
+            <div class="facility-grid">
+                <div class="card glow-effect">
+                    <i class="fas fa-x-ray"></i>
+                    <h3>Digital X-Ray</h3>
+                    <p>High-resolution imaging with minimal radiation exposure.</p>
+                </div>
+                <div class="card glow-effect">
+                    <i class="fas fa-tooth"></i>
+                    <h3>Digital OPG</h3>
+                    <p>Comprehensive dental radiography for precise diagnosis.</p>
+                </div>
+                <div class="card glow-effect">
+                    <i class="fas fa-wave-square"></i>
+                    <h3>Ultrasound</h3>
+                    <p>Advanced 3D/4D scanning for clinical accuracy.</p>
+                </div>
+                <div class="card glow-effect">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>ECG & Echo</h3>
+                    <p>Detailed cardiac monitoring and heart health analysis.</p>
+                </div>
+                <div class="card glow-effect">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Computerised Lab</h3>
+                    <p>Fully automated pathology for swift and accurate reports.</p>
+                </div>
+                <div class="card glow-effect">
+                    <i class="fas fa-user-check"></i>
+                    <h3>Health Checkup</h3>
+                    <p>Master health packages tailored for all age groups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="appointment" class="appointment">
+        <div class="container flex-split">
+            
+            <div id="contact" class="contact-details">
+                <h2>Visit Our Centre</h2>
+                <p>We are dedicated to providing the best patient experience.</p>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Location</h4>
+                        <p style="margin-bottom: 8px;">
+                            North Side Health Centre, 85 /1-1, CBI Road, 10th Cross Rd, Ganganagar, Bengaluru, Karnataka 560032
+                        </p>
+                        <a href="https://www.google.com/maps/dir//North+Side+Health+Centre,+85+%2F1-1,+CBI+Road,+10th+Cross+Rd,+Ganganagar,+Bengaluru,+Karnataka+560032" target="_blank" style="color: #2563eb; font-weight: bold; text-decoration: none; font-size: 0.95rem; display: inline-flex; align-items: center; gap: 5px;">
+                            <i class="fas fa-location-arrow"></i> Get Directions on Maps
+                        </a>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Working Hours</h4>
+                        <p>Mon - Sat: 8:00 AM - 8:30 PM <br>Sunday: Holiday</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h4>Contact Details</h4>
+                        <p style="margin-top: 5px;">
+                            <a href="tel:9945807091" style="color: #2563eb; font-weight: bold; text-decoration: none; font-size: 1.1rem;">
+                                <i class="fas fa-mobile-alt"></i> 9945807091
+                            </a> 
+                            <br> 
+                            <a href="tel:08023332371" style="color: #2563eb; font-weight: bold; text-decoration: none; font-size: 1.1rem;">
+                                <i class="fas fa-phone"></i>080 2333 2371
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="booking-card">
+                <div id="booking-step-1">
+                    <h3>Schedule Appointment</h3>
+                    <p style="color: #051931; margin-bottom: 20px;">Select a service to get started.</p>
+                    
+                    <div class="input-group">
+                        <label>Select Service</label>
+                        <select id="service-select">
+                            <option value="" disabled selected>-- Choose Facility --</option>
+                            <option>Digital X-Ray</option>
+                            <option>Digital OPG</option>
+                            <option>Ultrasound Scanning</option>
+                            <option>ECG / Echo</option>
+                            <option>Colour Doppler</option>
+                            <option>Lab Blood Test</option>
+                            <option>Master Health Checkup</option>
+                        </select>
+                    </div>
+                    <button onclick="revealNumbers()" class="btn-submit">Book Appointment</button>
+                </div>
+
+                <div id="booking-step-2" style="display: none; text-align: center; animation: fadeIn 0.5s;">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; color: #4ade80; margin-bottom: 1rem;"></i>
+                    <h3>Service Selected!</h3>
+                    <p style="color: #cbd5e1; margin-bottom: 20px;">Please click a number below to call us immediately:</p>
+                    
+                    <div class="phone-box">
+                        <a href="tel:9945807091" class="phone-link">
+                            <i class="fas fa-mobile-alt"></i> 9945807091
+                        </a>
+                        <a href="tel:08023332371" class="phone-link">
+                            <i class="fas fa-phone"></i> 080 2333 2371
+                        </a>
+                    </div>
+                    
+                    <button onclick="resetBooking()" style="background: transparent; border: 1px solid #cbd5e1; color: #fff; padding: 5px 15px; margin-top: 20px; border-radius: 4px; cursor: pointer;">Back to Menu</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 North Side Health Centre. Designed for excellence.</p>
+    </footer>
+
+    <script>
+        function revealNumbers() {
+            var service = document.getElementById("service-select").value;
+            if (service === "") {
+                alert("Please select a service first.");
+                return;
+            }
+            document.getElementById("booking-step-1").style.display = "none";
+            document.getElementById("booking-step-2").style.display = "block";
+        }
+
+        function resetBooking() {
+            document.getElementById("booking-step-1").style.display = "block";
+            document.getElementById("booking-step-2").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
