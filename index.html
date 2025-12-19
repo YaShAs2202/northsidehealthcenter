@@ -65,7 +65,7 @@
                 </div>
                 <div class="card glow-effect">
                     <i class="fas fa-heartbeat"></i>
-                    <h3>ECG & Echo</h3>
+                    <h3>ECG </h3>
                     <p>Detailed cardiac monitoring and heart health analysis.</p>
                 </div>
                 <div class="card glow-effect">
@@ -85,6 +85,45 @@
     <section id="appointment" class="appointment">
         <div class="container flex-split">
             
+            <div class="booking-card">
+                <div id="booking-step-1">
+                    <h3>Schedule Appointment</h3>
+                    <p style="color: #456882; margin-bottom: 20px;">Select a service to get started.</p>
+                    
+                    <div class="input-group">
+                        <label>Select Service</label>
+                        <select id="service-select">
+                            <option value="" disabled selected>-- Choose Facility --</option>
+                            <option>Digital X-Ray</option>
+                            <option>Digital OPG</option>
+                            <option>Ultrasound Scanning</option>
+                            <option>ECG</option>
+                            <option>Colour Doppler</option>
+                            <option>Lab Blood Test</option>
+                            <option>Master Health Checkup</option>
+                        </select>
+                    </div>
+                    <button onclick="revealNumbers()" class="btn-submit">Book Appointment</button>
+                </div>
+
+                <div id="booking-step-2" style="display: none; text-align: center; animation: fadeIn 0.5s;">
+                    <i class="fas fa-check-circle" style="font-size: 3rem; color: #4ade80; margin-bottom: 1rem;"></i>
+                    <h3>Service Selected!</h3>
+                    <p style="color: #456882; margin-bottom: 20px;">Please click a number below to call us immediately:</p>
+                    
+                    <div class="phone-box">
+                        <a href="tel:9945807091" class="phone-link">
+                            <i class="fas fa-mobile-alt"></i> 9945807091
+                        </a>
+                        <a href="tel:08023332371" class="phone-link">
+                            <i class="fas fa-phone"></i> 080 2333 2371
+                        </a>
+                    </div>
+                    
+                    <button onclick="resetBooking()" style="background: transparent; border: 1px solid #456882; color: #1B3C53; padding: 5px 15px; margin-top: 20px; border-radius: 4px; cursor: pointer;">Back to Menu</button>
+                </div>
+            </div>
+
             <div id="contact" class="contact-details">
                 <h2>Visit Our Centre</h2>
                 <p>We are dedicated to providing the best patient experience.</p>
@@ -120,52 +159,13 @@
                             </a> 
                             <br> 
                             <a href="tel:08023332371" style="color: #2563eb; font-weight: bold; text-decoration: none; font-size: 1.1rem;">
-                                <i class="fas fa-phone"></i> 080 2333 2371
+                                <i class="fas fa-phone"></i>080 2333 2371
                             </a>
                         </p>
                     </div>
                 </div>
-
             </div>
 
-            <div class="booking-card">
-                <div id="booking-step-1">
-                    <h3>Schedule Appointment</h3>
-                    <p style="color: #456882; margin-bottom: 20px;">Select a service to get started.</p>
-                    
-                    <div class="input-group">
-                        <label>Select Service</label>
-                        <select id="service-select">
-                            <option value="" disabled selected>-- Choose Facility --</option>
-                            <option>Digital X-Ray</option>
-                            <option>Digital OPG</option>
-                            <option>Ultrasound Scanning</option>
-                            <option>ECG / Echo</option>
-                            <option>Colour Doppler</option>
-                            <option>Lab Blood Test</option>
-                            <option>Master Health Checkup</option>
-                        </select>
-                    </div>
-                    <button onclick="revealNumbers()" class="btn-submit">Book Appointment</button>
-                </div>
-
-                <div id="booking-step-2" style="display: none; text-align: center; animation: fadeIn 0.5s;">
-                    <i class="fas fa-check-circle" style="font-size: 3rem; color: #4ade80; margin-bottom: 1rem;"></i>
-                    <h3>Service Selected!</h3>
-                    <p style="color: #456882; margin-bottom: 20px;">Please click a number below to call us immediately:</p>
-                    
-                    <div class="phone-box">
-                        <a href="tel:9945807091" class="phone-link">
-                            <i class="fas fa-mobile-alt"></i> 9945807091
-                        </a>
-                        <a href="tel:08023332371" class="phone-link">
-                            <i class="fas fa-phone"></i> 080 2333 2371
-                        </a>
-                    </div>
-                    
-                    <button onclick="resetBooking()" style="background: transparent; border: 1px solid #456882; color: #1B3C53; padding: 5px 15px; margin-top: 20px; border-radius: 4px; cursor: pointer;">Back to Menu</button>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -177,7 +177,6 @@
         <a href="tel:9945807091" class="mobile-action-btn call-btn">
             <i class="fas fa-phone-alt"></i> Call Now
         </a>
-        
         <a href="javascript:void(0)" onclick="mobileScrollToBook()" class="mobile-action-btn book-btn">
             <i class="fas fa-calendar-check"></i> Book Now
         </a>
@@ -188,7 +187,6 @@
         function mobileScrollToBook() {
             const section = document.getElementById("appointment");
             if (section) {
-                // Manually calculate position to account for sticky header
                 const headerOffset = 120; 
                 const elementPosition = section.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
